@@ -1,0 +1,89 @@
+// donacion_de_centavos.cpp: define el punto de entrada de la aplicación de consola.
+//
+
+/*
+	Programador: Marvin Gustavo Ajvatz Inay
+	Descripción: Donación de centavos de cada transacción
+*/
+
+#include "stdafx.h"
+#include "iostream"
+
+using namespace std;
+
+void transacciones()
+{
+	
+	int no_cheque;
+	char fecha[20];
+	int total_cheques=0;
+	char nombre[20];
+	double monto_cheque, monto_total=0;
+	int veces=1;
+	int entero;
+	double decimal, total_decimales=0, dinero_pagado;
+	int continuar=0;
+
+	do
+	{
+		system("cls");
+		cout<<"\n";
+		cout<<"Ingrese el numero de cheque: ";
+		cin>>no_cheque;
+		cout<<"Ingrese la fecha: ";
+		cin>>fecha;
+		cout<<"Ingrese su nombre: ";
+		cin>>nombre;
+		cout<<"Ingrese el monto del cheque: ";
+		cin>>monto_cheque;
+		cout<<"\n";
+		cout<<"\n";
+
+		total_cheques++;
+		monto_total=monto_total+monto_cheque;
+		entero=monto_cheque;
+		decimal=monto_cheque-entero;
+		total_decimales=total_decimales+decimal;
+
+		cout<<"Presione 1 para continuar, y 2 para salir: ";
+		cin>>continuar;
+	} while (continuar==1);
+
+		system("cls");
+		cout<<"Cantidad de cheques pagados: "<< total_cheques << endl;
+		cout<<"Total de montos de los cheques: "<< monto_total << endl;
+		/*cout<<"entero: "<< entero << endl;
+		cout<<"decimal: "<< decimal << endl;*/
+		cout<<"Total de dinero recaudado: "<< total_decimales << endl;
+		cout<<"Total de dinero pagado a los clientes: "<< monto_total-total_decimales << endl;
+		cout<<"\n";
+		system("pause");
+
+}
+
+
+
+void main()
+{
+	int opcion = 0;
+
+	while(opcion != 2){
+	system("cls");
+	cout<<"*********************************** TRANSACCIONES BANCO XX.S.A ***********************************************";
+	cout<<"\n";
+	cout<<"1. Realizar una transacción ";
+	cout<<"\n";
+	cout<<"2. Salir ";
+	cout<<"\n";
+	cout<<"Seleccione una opcion: ";
+	cin>>opcion;
+
+	switch (opcion){
+	case 1: system("cls");transacciones();break;
+	case 2: break;
+	}
+
+	}
+
+}
+
